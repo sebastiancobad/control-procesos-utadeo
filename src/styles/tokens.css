@@ -1,0 +1,61 @@
+/* ===========================================================
+   Sala de Control · sistema de diseno
+   Paleta derivada del kit de laminas del curso (NAVY #00558F)
+   y de la convencion de color de un registrador de proceso.
+   =========================================================== */
+
+:root {
+  /* --- superficies --- */
+  --paper:      #F2F6FA;   /* fondo general, papel frio */
+  --sheet:      #FFFFFF;   /* lamina de contenido */
+  --pale:       #EAF1F8;   /* relleno de equipos y bloques */
+  --liq:        #BFD7EC;   /* nivel de liquido */
+  --grid:       #DCE6EF;   /* retícula de registrador y marcos */
+  --grid-soft:  #EDF2F7;
+
+  /* --- tinta --- */
+  --navy:       #00558F;   /* azul institucional */
+  --navy-d:     #003C67;
+  --ink:        #15242F;   /* cuerpo */
+  --ink-2:      #4E6070;   /* secundario */
+  --ink-3:      #616E7A;   /* terciario, pies de figura y ayudas (AA en texto pequeno) */
+  --ink-4:      #7C8B98;   /* solo trazos y bordes, nunca texto */
+
+  /* --- semantica de senales de control --- */
+  --pv:         #00558F;   /* variable de proceso */
+  --sp:         #46586A;   /* punto de control, trazo discontinuo sobre la medida */
+  --mv:         #C2711C;   /* salida del controlador, trazo */
+  --mv-ink:     #A25C0C;   /* el mismo ocre, legible como texto pequeno */
+  --dist:       #2E7D6F;   /* perturbacion */
+  --alarm:      #A93226;   /* alarma, region inestable */
+  --ok:         #2E7D32;
+
+  /* --- tipografia --- */
+  --f-display: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', sans-serif;
+  --f-body:    'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono:    'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
+
+  --t-xs:   0.75rem;
+  --t-sm:   0.8125rem;
+  --t-base: 1.0625rem;
+  --t-lg:   1.1875rem;
+  --t-xl:   1.5rem;
+  --t-2xl:  2rem;
+
+  /* --- ritmo --- */
+  --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px;
+  --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px;
+
+  --rail: 272px;
+  --radius: 3px;          /* casi recto: lenguaje de plano tecnico */
+  --line: 1px solid var(--grid);
+  --shadow: 0 1px 2px rgba(21, 36, 47, .05), 0 8px 24px -12px rgba(21, 36, 47, .14);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

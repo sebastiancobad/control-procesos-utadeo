@@ -1,0 +1,11 @@
+import { closedLoop, tuneCC, tuneIMC } from './src/lib/control.js';
+import { metrics } from './src/lib/ode.js';
+const P = { K: 1.6, tau: 8, theta: 2.5 };
+console.log('A2 CC modo P  Kc =', tuneCC(P, 'P').Kc.toFixed(2), '(esperado 2.21)');
+const i = tuneIMC(P, 2.5, 'PI');
+console.log('A2 IMC modo PI Kc =', i.Kc.toFixed(2), ' tauI =', i.tauI.toFixed(2));
+const d = closedLoop({ ...P, Kc: 2.4, tauI: 7, tauD: 0, sp0: 50, spStep: 0, tSP: 1e9, u0: 45, Kd: 2, dStep: -10, tD: 5, thetaD: 1.5, tEnd: 90, dt: 0.02 });
+const tras = d.filter(p => p.t >= 5);
+const pico = tras.reduce((a, p) => (Math.abs(p.pv - p.sp) > Math.abs(a.pv - a.sp) ? p : a), tras[0]);
+const m = metrics(tras.filter(p => p.t >= pico.t), pico.pv, pico.sp, 0.05);
+console.log('A3 pico =', pico.pv.toFixed(2), 'en t =', pico.t.toFixed(1), '· recuperacion =', m && m.tSettle ? m.tSettle.toFixed(1) + ' min' : 'null');

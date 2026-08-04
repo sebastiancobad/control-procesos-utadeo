@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+title: "Sala de Control: aula interactiva de Control de Procesos Industriales"
+message: "Si usa este material, por favor citelo como aparece a continuacion."
+type: software
+authors:
+  - family-names: Coba
+    given-names: Sebastian
+    affiliation: "Universidad de Bogota Jorge Tadeo Lozano, Programa de Ingeniería Quimica"
+abstract: >-
+  Recurso educativo interactivo para el curso Control de Procesos Industriales
+  del programa de Ingeniería Quimica. Cubre los dieciseis modulos del curso
+  con teoría, diagramas P&ID conformes a ANSI/ISA-5.1, siete simuladores
+  numericos que integran las ecuaciones del proceso en el navegador, ejercicios
+  resueltos paso a paso y evaluacion autocalificada con registro opcional de
+  resultados para el docente.
+keywords:
+  - control de procesos
+  - ingeniería quimica
+  - educacion en ingeniería
+  - simulación interactiva
+  - PID
+  - ISA 5.1
+license: CC-BY-4.0
+version: 1.0.0
+date-released: "2026-08-01"
