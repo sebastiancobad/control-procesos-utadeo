@@ -28,15 +28,11 @@
   <section id="s-reg" class="card">
     <div class="kicker">Registro</div>
     <h1>Parcial del segundo corte</h1>
-    <p class="lede">Dinámica de segundo orden, válvulas de control, sensores y transmisores. El parcial se genera a partir de su cédula, por eso cada estudiante recibe datos distintos. Dispone de dos horas desde que oprime el botón de inicio. Las respuestas se guardan en el servidor cada vez que oprime <b>Guardar respuesta</b> y también al escribir, de modo que puede recargar la página sin perder el trabajo.</p>
-    <div class="callout">
-      <p>El parcial es de apuntes abiertos. Puede usar el libro, las diapositivas, la calculadora y hojas de cálculo. Escriba los números con punto decimal y sin unidades dentro de la casilla. Las tolerancias de calificación admiten el redondeo razonable de los cálculos intermedios.</p>
-      <p>Cada ítem se califica de forma independiente. Las decisiones de selección múltiple cuentan junto con el valor numérico del mismo ítem. Las justificaciones se leen y se califican por el profesor.</p>
-    </div>
+    <p class="lede">Escriba su cédula, su nombre y la clave que dicta el profesor. El tiempo empieza a contar al oprimir el botón.</p>
     <div class="grid2">
-      <div class="field"><label for="ced">Cédula</label><input id="ced" inputmode="numeric" autocomplete="off" placeholder="solo dígitos"><span class="help">Entre 6 y 12 dígitos, sin puntos. La cédula genera su parcial y es la llave de su registro, verifíquela.</span></div>
-      <div class="field"><label for="ced2">Confirme la cédula</label><input id="ced2" inputmode="numeric" autocomplete="off" placeholder="repita los dígitos"></div>
-      <div class="field" style="grid-column:1/-1"><label for="nom">Nombre completo</label><input id="nom" autocomplete="off" placeholder="como aparece en la lista"></div>
+      <div class="field"><label for="ced">Cédula</label><input id="ced" inputmode="numeric" autocomplete="off" placeholder="solo dígitos"></div>
+      <div class="field"><label for="nom">Nombre completo</label><input id="nom" autocomplete="off" placeholder="como aparece en la lista"></div>
+      <div class="field"><label for="key">Clave de acceso</label><input id="key" autocomplete="off" placeholder="la dicta el profesor"></div>
     </div>
     <div class="act">
       <button id="b-start" class="btn">Comenzar el parcial</button>
