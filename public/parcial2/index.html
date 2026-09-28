@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parcial 2 · Control de Procesos Industriales</title>
+<link rel="stylesheet" href="./vendor/fonts2.css">
+<link rel="stylesheet" href="./vendor/katex/katex.min.css">
+<link rel="stylesheet" href="./styles.css">
+<script type="importmap">{"imports":{"three":"./vendor/three/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
+<script src="./vendor/firebase/firebase-app-compat.js"></script>
+<script src="./vendor/firebase/firebase-firestore-compat.js"></script>
+<script src="./vendor/katex/katex.min.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">Parcial 2 · Control de Procesos Industriales<small>Ingeniería Química · UTADEO · CPI1 2026-II · Corte 2</small></div>
+  <div class="grow"></div>
+  <span id="who" class="pill g hidden"></span>
+  <div id="prog" class="prog hidden" title="Avance por ítem"></div>
+  <div id="timer" class="timer hidden"><span>restante</span><b id="clock">2:00:00</b></div>
+</header>
+
+<main class="wrap">
+
+  <!-- registro -->
+  <section id="s-reg" class="card">
+    <div class="kicker">Registro</div>
+    <h1>Parcial del segundo corte</h1>
+    <p class="lede">Dinámica de segundo orden, válvulas de control, sensores y transmisores. El parcial se genera a partir de su cédula, por eso cada estudiante recibe datos distintos. Dispone de dos horas desde que oprime el botón de inicio. Las respuestas se guardan en el servidor cada vez que oprime <b>Guardar respuesta</b> y también al escribir, de modo que puede recargar la página sin perder el trabajo.</p>
+    <div class="callout">
+      <p>El parcial es de apuntes abiertos. Puede usar el libro, las diapositivas, la calculadora y hojas de cálculo. Escriba los números con punto decimal y sin unidades dentro de la casilla. Las tolerancias de calificación admiten el redondeo razonable de los cálculos intermedios.</p>
+      <p>Cada ítem se califica de forma independiente. Las decisiones de selección múltiple cuentan junto con el valor numérico del mismo ítem. Las justificaciones se leen y se califican por el profesor.</p>
+    </div>
+    <div class="grid2">
+      <div class="field"><label for="ced">Cédula</label><input id="ced" inputmode="numeric" autocomplete="off" placeholder="solo dígitos"><span class="help">Entre 6 y 12 dígitos, sin puntos. La cédula genera su parcial y es la llave de su registro, verifíquela.</span></div>
+      <div class="field"><label for="ced2">Confirme la cédula</label><input id="ced2" inputmode="numeric" autocomplete="off" placeholder="repita los dígitos"></div>
+      <div class="field" style="grid-column:1/-1"><label for="nom">Nombre completo</label><input id="nom" autocomplete="off" placeholder="como aparece en la lista"></div>
+    </div>
+    <div class="act">
+      <button id="b-start" class="btn">Comenzar el parcial</button>
+      <span id="reg-state" class="state hidden"></span>
+    </div>
+  </section>
+
+  <!-- item -->
+  <section id="s-exam" class="hidden">
+    <article id="item" class="card"></article>
+    <div class="act" style="justify-content:space-between">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <button id="b-prev" class="btn o">Anterior</button>
+        <button id="b-next" class="btn o">Siguiente</button>
+        <button id="b-review" class="btn o">Ver resumen y entregar</button>
+      </div>
+      <span id="save-state" class="state hidden"></span>
+    </div>
+  </section>
+
+  <!-- revision -->
+  <section id="s-review" class="card hidden">
+    <div class="kicker">Resumen</div>
+    <h2>Estado de sus respuestas</h2>
+    <p class="lede">Haga clic en un ítem para volver a él. Los ítems incompletos se entregan tal como estén. Al entregar, el parcial queda cerrado y no admite cambios.</p>
+    <table class="data review-table" id="review-table"></table>
+    <div class="act">
+      <button id="b-back" class="btn o">Volver a los ítems</button>
+      <button id="b-submit" class="btn c">Entregar el parcial</button>
+      <span id="submit-state" class="state hidden"></span>
+    </div>
+    <div id="confirm" class="callout risk hidden">
+      <p><b>Confirmación.</b> Va a entregar el parcial de forma definitiva. Después de este paso no podrá modificar ninguna respuesta.</p>
+      <div class="act" style="margin-top:10px"><button id="b-submit-yes" class="btn c">Sí, entregar</button><button id="b-submit-no" class="btn o">Todavía no</button></div>
+    </div>
+  </section>
+
+  <!-- entregado -->
+  <section id="s-done" class="card hidden">
+    <div class="kicker">Parcial entregado</div>
+    <h2>Sus respuestas quedaron registradas</h2>
+    <p class="lede" id="done-text"></p>
+    <div class="callout"><p>Puede cerrar esta ventana. La nota se publica en Avata después de la revisión de las justificaciones.</p></div>
+  </section>
+
+  <!-- docente -->
+  <section id="s-teacher" class="hidden">
+    <div class="card">
+      <div class="kicker">Panel del profesor</div>
+      <h2>Entregas del parcial 2</h2>
+      <div id="t-login" class="act" style="margin-top:8px"><input id="t-pass" type="password" placeholder="clave del panel" class="mono" style="font-size:16px;border:2px solid var(--border);border-radius:10px;padding:10px 14px"><button id="t-enter" class="btn">Entrar</button><span id="t-state" class="state hidden"></span></div>
+      <div id="t-body" class="hidden">
+        <div class="act" style="margin-top:0;margin-bottom:14px"><button id="t-reload" class="btn o sm">Actualizar</button><button id="t-xlsx" class="btn sm">Descargar Excel</button><span id="t-count" class="hint"></span></div>
+        <table class="data compact" id="t-table"></table>
+      </div>
+    </div>
+    <div class="card" id="t-preview-card">
+      <div class="kicker">Previsualización por cédula</div>
+      <h3>Ítems y respuestas esperadas de una cédula</h3>
+      <div class="act" style="margin-top:8px"><input id="t-ced" inputmode="numeric" placeholder="cédula" class="mono" style="font-size:16px;border:2px solid var(--border);border-radius:10px;padding:10px 14px"><button id="t-prev" class="btn o sm">Generar</button></div>
+      <div id="t-preview"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span>Prof. Sebastián Coba · Control de Procesos Industriales · Universidad Jorge Tadeo Lozano</span>
+  <span><a href="#docente" id="link-teacher">docente</a></span>
+</footer>
+
+<script type="module" src="./app.min.js"></script>
+</body>
+</html>
