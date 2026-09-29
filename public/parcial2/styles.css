@@ -68,7 +68,7 @@ h3{font-weight:700;font-size:22px;margin:0 0 8px}
 .formulas .eqs{display:flex;flex-wrap:wrap;gap:8px 34px;align-items:center}
 .formulas .eqs .katex{font-size:1.05em}
 table.data{width:100%;border-collapse:collapse;font-size:17px;background:#fff;margin:10px 0 18px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
-table.data caption{caption-side:top;text-align:left;font-family:Inter,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--muted);padding:0 0 8px}
+table.data caption{caption-side:top;text-align:left;font-family:Inter,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--muted);padding:0 0 8px 3px}
 table.data th,table.data td{border-bottom:1px solid var(--border);padding:8px 14px;text-align:left}
 table.data th{font-family:Inter,sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:var(--green-bg)}
 table.data td.num,table.data th.num{font-family:"JetBrains Mono",monospace;font-size:15px;text-align:right}
