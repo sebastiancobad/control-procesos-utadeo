@@ -28,11 +28,10 @@
   <section id="s-reg" class="card">
     <div class="kicker">Registro</div>
     <h1>Parcial del segundo corte</h1>
-    <p class="lede">Escriba su cédula, su nombre y la clave que dicta el profesor. El tiempo empieza a contar al oprimir el botón.</p>
+    <p class="lede">Escriba su cédula y su nombre. El tiempo empieza a contar al oprimir el botón.</p>
     <div class="grid2">
       <div class="field"><label for="ced">Cédula</label><input id="ced" inputmode="numeric" autocomplete="off" placeholder="solo dígitos"></div>
       <div class="field"><label for="nom">Nombre completo</label><input id="nom" autocomplete="off" placeholder="como aparece en la lista"></div>
-      <div class="field"><label for="key">Clave de acceso</label><input id="key" autocomplete="off" placeholder="la dicta el profesor"></div>
     </div>
     <div class="act">
       <button id="b-start" class="btn">Comenzar el parcial</button>
@@ -98,6 +97,15 @@
   </section>
 
 </main>
+
+<div id="modal-key" class="overlay hidden">
+  <div class="modal">
+    <div class="kicker">Clave de acceso</div>
+    <p class="lede" style="font-size:18px;margin-bottom:14px">Escriba la clave que dicta el profesor para iniciar el parcial.</p>
+    <div class="field"><input id="key" autocomplete="off" placeholder="clave" class="mono"></div>
+    <div class="act" style="margin-top:16px"><button id="b-key-ok" class="btn">Comenzar</button><button id="b-key-no" class="btn o">Cancelar</button><span id="key-state" class="state err hidden"></span></div>
+  </div>
+</div>
 
 <footer class="foot">
   <span>Prof. Sebastián Coba · Control de Procesos Industriales · Universidad Jorge Tadeo Lozano</span>
