@@ -76,6 +76,7 @@ table.data tr:last-child td{border-bottom:0}
 table.data.compact td,table.data.compact th{padding:5px 10px;font-size:15px}
 table.data.narrow{width:auto;min-width:380px}
 table.data.narrow td,table.data.narrow th{padding-right:34px}
+table.data.plain th{text-transform:none;letter-spacing:.02em;font-size:13px}
 table.data tr.sel td{background:var(--green-bg)}
 
 /* opciones */
