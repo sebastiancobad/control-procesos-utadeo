@@ -6,7 +6,7 @@
 <title>Parcial 2 · Control de Procesos Industriales</title>
 <link rel="stylesheet" href="./vendor/fonts2.css">
 <link rel="stylesheet" href="./vendor/katex/katex.min.css">
-<link rel="stylesheet" href="./styles.css?v=202609282136">
+<link rel="stylesheet" href="./styles.css?v=202609282141">
 <script type="importmap">{"imports":{"three":"./vendor/three/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
 <script src="./vendor/firebase/firebase-app-compat.js"></script>
 <script src="./vendor/firebase/firebase-firestore-compat.js"></script>
@@ -28,7 +28,7 @@
   <section id="s-reg" class="card">
     <div class="kicker">Registro</div>
     <h1>Parcial del segundo corte</h1>
-    <p class="lede">Escriba su nombre y su cédula. El tiempo empieza a contar al oprimir el botón.</p>
+    <p class="lede">Escriba su nombre y su cédula. El tiempo empieza a contar al oprimir el botón. <span id="close-note"></span></p>
     <div class="grid2">
       <div class="field"><label for="nom">Nombre completo</label><input id="nom" autocomplete="off" placeholder="como aparece en la lista"></div>
       <div class="field"><label for="ced">Cédula</label><input id="ced" inputmode="numeric" autocomplete="off" placeholder="solo dígitos"></div>
@@ -85,6 +85,7 @@
       <div id="t-login" class="act" style="margin-top:8px"><input id="t-pass" type="password" placeholder="clave del profesor" class="mono" style="font-size:16px;border:2px solid var(--border);border-radius:10px;padding:10px 14px"><button id="t-enter" class="btn">Entrar</button><span id="t-state" class="state hidden"></span></div>
       <div id="t-body" class="hidden">
         <div class="act" style="margin-top:0;margin-bottom:14px"><button id="t-reload" class="btn o sm">Actualizar</button><button id="t-xlsx" class="btn sm">Descargar Excel</button><span id="t-count" class="hint"></span></div>
+        <div class="act" style="margin-top:0;margin-bottom:18px"><span class="hint">Cierre del parcial (hora de Bogotá)</span><input id="t-close" type="datetime-local" class="mono" style="font-size:14px;border:2px solid var(--border);border-radius:10px;padding:8px 12px"><button id="t-close-save" class="btn o sm">Guardar cierre</button><span id="t-close-state" class="hint"></span></div>
         <table class="data compact" id="t-table"></table>
         <div class="kicker" style="margin-top:34px">Previsualización por cédula</div>
         <h3>Ítems y respuestas esperadas de una cédula</h3>
@@ -110,6 +111,6 @@
   <span><a href="#docente" id="link-teacher">docente</a></span>
 </footer>
 
-<script type="module" src="./app.min.js?v=202609282136"></script>
+<script type="module" src="./app.min.js?v=202609282141"></script>
 </body>
 </html>
