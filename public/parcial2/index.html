@@ -6,7 +6,7 @@
 <title>Parcial 2 · Control de Procesos Industriales</title>
 <link rel="stylesheet" href="./vendor/fonts2.css">
 <link rel="stylesheet" href="./vendor/katex/katex.min.css">
-<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./styles.css?v=202609282015">
 <script type="importmap">{"imports":{"three":"./vendor/three/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
 <script src="./vendor/firebase/firebase-app-compat.js"></script>
 <script src="./vendor/firebase/firebase-firestore-compat.js"></script>
@@ -82,17 +82,15 @@
     <div class="card">
       <div class="kicker">Panel del profesor</div>
       <h2>Entregas del parcial 2</h2>
-      <div id="t-login" class="act" style="margin-top:8px"><input id="t-pass" type="password" placeholder="clave del panel" class="mono" style="font-size:16px;border:2px solid var(--border);border-radius:10px;padding:10px 14px"><button id="t-enter" class="btn">Entrar</button><span id="t-state" class="state hidden"></span></div>
+      <div id="t-login" class="act" style="margin-top:8px"><input id="t-pass" type="password" placeholder="clave del profesor" class="mono" style="font-size:16px;border:2px solid var(--border);border-radius:10px;padding:10px 14px"><button id="t-enter" class="btn">Entrar</button><span id="t-state" class="state hidden"></span></div>
       <div id="t-body" class="hidden">
         <div class="act" style="margin-top:0;margin-bottom:14px"><button id="t-reload" class="btn o sm">Actualizar</button><button id="t-xlsx" class="btn sm">Descargar Excel</button><span id="t-count" class="hint"></span></div>
         <table class="data compact" id="t-table"></table>
+        <div class="kicker" style="margin-top:34px">Previsualización por cédula</div>
+        <h3>Ítems y respuestas esperadas de una cédula</h3>
+        <div class="act" style="margin-top:8px"><input id="t-ced" inputmode="numeric" placeholder="cédula" class="mono" style="font-size:16px;border:2px solid var(--border);border-radius:10px;padding:10px 14px"><button id="t-prev" class="btn o sm">Generar</button></div>
+        <div id="t-preview"></div>
       </div>
-    </div>
-    <div class="card" id="t-preview-card">
-      <div class="kicker">Previsualización por cédula</div>
-      <h3>Ítems y respuestas esperadas de una cédula</h3>
-      <div class="act" style="margin-top:8px"><input id="t-ced" inputmode="numeric" placeholder="cédula" class="mono" style="font-size:16px;border:2px solid var(--border);border-radius:10px;padding:10px 14px"><button id="t-prev" class="btn o sm">Generar</button></div>
-      <div id="t-preview"></div>
     </div>
   </section>
 
@@ -112,6 +110,6 @@
   <span><a href="#docente" id="link-teacher">docente</a></span>
 </footer>
 
-<script type="module" src="./app.min.js"></script>
+<script type="module" src="./app.min.js?v=202609282015"></script>
 </body>
 </html>
